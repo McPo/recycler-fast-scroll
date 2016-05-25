@@ -50,7 +50,7 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-group = publishedGroupId
+group = 'com.github.McPo'
 
 install {
     repositories.mavenInstaller {
