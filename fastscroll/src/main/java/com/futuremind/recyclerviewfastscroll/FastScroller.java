@@ -3,12 +3,12 @@ package com.futuremind.recyclerviewfastscroll;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 /**
@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 public class FastScroller extends LinearLayout {
 
     private FastScrollBubble bubble;
-    private ImageView handle;
+    private AppCompatImageView handle;
     private int bubbleOffset;
 
     private int scrollerOrientation;
@@ -77,7 +77,7 @@ public class FastScroller extends LinearLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
-        handle = (ImageView) findViewById(R.id.fastscroller_handle);
+        handle = (AppCompatImageView) findViewById(R.id.fastscroller_handle);
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
         initHandleMovement();

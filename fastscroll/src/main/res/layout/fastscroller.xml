@@ -13,7 +13,7 @@
         android:layout_marginRight="-8dp"
         tools:visibility="visible"/>
 
-    <ImageView
+    <AppCompatImageView
         android:id="@+id/fastscroller_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
