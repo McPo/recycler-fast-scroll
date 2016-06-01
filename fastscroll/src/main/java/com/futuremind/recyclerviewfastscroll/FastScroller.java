@@ -94,7 +94,7 @@ public class FastScroller extends LinearLayout {
         } else {
             handle.setImageResource(
                     isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
-            ));
+            );
         }
     }
 
