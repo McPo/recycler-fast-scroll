@@ -85,8 +85,13 @@ public class FastScroller extends LinearLayout {
     }
 
     private void initHandleBackground() {
-        handle.setImageDrawable(ContextCompat.getDrawable(getContext(),
-            isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal));
+        try {
+            handle.setImageDrawable(ContextCompat.getDrawable(getContext(),
+                isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal));
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initHandleMovement() {
