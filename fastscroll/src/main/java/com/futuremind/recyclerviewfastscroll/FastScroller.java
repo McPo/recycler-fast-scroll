@@ -83,19 +83,9 @@ public class FastScroller extends LinearLayout {
         initHandleMovement();
     }
 
-    @SuppressWarnings("deprecation")
     private void initHandleBackground() {
-        Resources resources = getResources();
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            handle.setImageDrawable(resources.getDrawable(
-                    isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal,
-                    getContext().getTheme()
-            ));
-        } else {
-            handle.setImageDrawable(resources.getDrawable(
-                    isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
-            ));
-        }
+        handle.setImageDrawable(ContextCompat.getDrawable(this,
+            isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal));
     }
 
     private void initHandleMovement() {
