@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
  */
 public class FastScroller extends LinearLayout {
 
-    private FastScrollBubble bubble;
+    //private FastScrollBubble bubble;
     private AppCompatImageView handle;
     private int bubbleOffset;
 
@@ -76,9 +76,9 @@ public class FastScroller extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
+        //bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
         handle = (AppCompatImageView) findViewById(R.id.fastscroller_handle);
-        bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
+        //bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
         initHandleMovement();
     }
@@ -92,9 +92,9 @@ public class FastScroller extends LinearLayout {
                     getContext().getTheme()
             ));
         } else {*/
-            handle.setImageResource(
-                    isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
-            );
+            //handle.setImageResource(
+            //        isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
+            //);
         //}
     }
 
@@ -104,7 +104,7 @@ public class FastScroller extends LinearLayout {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
 
-                    if(titleProvider!=null) bubble.show();
+                    //if(titleProvider!=null) bubble.show();
                     manuallyChangingPosition = true;
 
                     float relativePos = getRelativeTouchPosition(event);
@@ -116,7 +116,7 @@ public class FastScroller extends LinearLayout {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
                     manuallyChangingPosition = false;
-                    if(titleProvider!=null) bubble.hide();
+                    //if(titleProvider!=null) bubble.hide();
                     return true;
 
                 }
@@ -163,12 +163,12 @@ public class FastScroller extends LinearLayout {
             int itemCount = recyclerView.getAdapter().getItemCount();
             int targetPos = (int) Utils.getValueInRange(0, itemCount - 1, (int) (relativePos * (float) itemCount));
             recyclerView.scrollToPosition(targetPos);
-            if(titleProvider!=null) bubble.setText(titleProvider.getSectionTitle(targetPos));
+            //if(titleProvider!=null) bubble.setText(titleProvider.getSectionTitle(targetPos));
         }
     }
 
     private void setHandlePosition(float relativePos) {
-        if(isVertical()) {
+        /*if(isVertical()) {
             bubble.setY(Utils.getValueInRange(
                     0,
                     getHeight() - bubble.getHeight(),
@@ -190,7 +190,7 @@ public class FastScroller extends LinearLayout {
                     getWidth() - handle.getWidth(),
                     relativePos * (getWidth() - handle.getWidth()))
             );
-        }
+        }*/
     }
 
     private class ScrollListener extends RecyclerView.OnScrollListener {
