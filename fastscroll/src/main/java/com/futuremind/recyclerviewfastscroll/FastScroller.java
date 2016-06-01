@@ -92,7 +92,7 @@ public class FastScroller extends LinearLayout {
                     getContext().getTheme()
             ));
         } else {
-            handle.setImageDrawable(resources.getDrawable(
+            handle.setImageResource(
                     isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
             ));
         }
