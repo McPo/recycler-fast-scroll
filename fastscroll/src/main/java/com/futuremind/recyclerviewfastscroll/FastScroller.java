@@ -85,17 +85,17 @@ public class FastScroller extends LinearLayout {
 
     @SuppressWarnings("deprecation")
     private void initHandleBackground() {
-        Resources resources = getResources();
+        /*Resources resources = getResources();
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             handle.setImageDrawable(resources.getDrawable(
                     isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal,
                     getContext().getTheme()
             ));
-        } else {
+        } else {*/
             handle.setImageResource(
                     isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
             );
-        }
+        //}
     }
 
     private void initHandleMovement() {
