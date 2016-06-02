@@ -83,7 +83,8 @@ public class FastScroller extends LinearLayout {
 
         Drawable originalDrawable = ContextCompat.getDrawable(getContext(), R.drawable.fastscroller_bubble);
         final Drawable wrappedDrawable = DrawableCompat.wrap(originalDrawable);
-        DrawableCompat.applyTheme(wrappedDrawable, getContext().getTheme());
+        //DrawableCompat.applyTheme(wrappedDrawable, getContext().getTheme());
+        DrawableCompat.setTint(wrappedDrawable, android.R.color.holo_green_light);
         bubble.setBackground(wrappedDrawable);
 
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
