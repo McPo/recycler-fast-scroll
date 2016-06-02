@@ -2,6 +2,7 @@ package com.futuremind.recyclerviewfastscroll;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
@@ -83,7 +84,7 @@ public class FastScroller extends LinearLayout {
 
         Drawable originalDrawable = ContextCompat.getDrawable(getContext(), R.drawable.fastscroller_bubble);
         final Drawable wrappedDrawable = DrawableCompat.wrap(originalDrawable);
-        DrawableCompat.setTint(wrappedDrawable, ContextCompat.getColor(getContext(), android.R.color.holo_green_light));
+        DrawableCompat.setTint(wrappedDrawable, new ColorDrawable(0XFFFFFFFF).getColor());
         bubble.setBackground(wrappedDrawable);
 
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
