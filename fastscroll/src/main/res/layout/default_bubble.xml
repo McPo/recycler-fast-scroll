@@ -6,7 +6,6 @@
     android:layout_width="64dp"
     android:layout_height="64dp"
     android:background="@drawable/fastscroller_bubble"
-    android:tint="?attr/fastscrollBubbleColor"
     android:gravity="center"
     android:textSize="24sp"
     tools:text="A"
