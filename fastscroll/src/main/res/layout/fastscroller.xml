@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <!--<com.futuremind.recyclerviewfastscroll.FastScrollBubble
-        android:id="@+id/fastscroller_bubble"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="4dp"
-        android:visibility="invisible"
-        android:layout_marginEnd="-8dp"
-        android:layout_marginRight="-8dp"
-        tools:visibility="visible"/>-->
-
-    <AppCompatImageView
-        android:id="@+id/fastscroller_handle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-</merge>
+<AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fastscroller_handle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+        

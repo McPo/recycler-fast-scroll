@@ -18,7 +18,7 @@ public class FastScroller extends LinearLayout {
 
     //private FastScrollBubble bubble;
     private AppCompatImageView handle;
-    private int bubbleOffset;
+    //private int bubbleOffset;
 
     private int scrollerOrientation;
 
