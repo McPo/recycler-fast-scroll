@@ -96,7 +96,7 @@ public class FastScroller extends LinearLayout {
         bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
 
-        setBackgroundTint(bubble);
+        setBackgroundTint(bubble.getChildAt(0));
         //setBackgroundTint(handle);
 
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
