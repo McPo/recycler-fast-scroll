@@ -100,7 +100,7 @@ public class FastScroller extends LinearLayout {
 
         defaultBubble.setTextAppearance(getContext(), bubbleTextStyle);
         setBackgroundTint(defaultBubble, bubbleColor);
-        setBackgroundTint(handle, handleColor);
+        //setBackgroundTint(handle, handleColor);
 
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
