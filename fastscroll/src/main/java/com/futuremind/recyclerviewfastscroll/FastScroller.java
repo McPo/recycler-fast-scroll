@@ -22,9 +22,9 @@ import android.util.Log;
  * Created by mklimczak on 28/07/15.
  */
 public class FastScroller extends LinearLayout {
-    private final int bubbleTextStyle;
+    private final int bubbleTextStyle =-1;
     private final int handleColor;
-    private final int bubbleColor;
+    private final int bubbleColor =-1;
 
     private FastScrollBubble bubble;
     private ImageView handle;
@@ -55,9 +55,7 @@ public class FastScroller extends LinearLayout {
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller);
         Log.i("FastScroller", style.length()+"");
         try {
-            bubbleTextStyle = style.getResourceId(0, -1);
-            handleColor = style.getColor(1, 0xFFFF0000);
-            bubbleColor = style.getColor(2, 0xFFFF0000);
+            handleColor = style.getColor(0, 0xFFFF0000);
         }
         finally {
             style.recycle();
