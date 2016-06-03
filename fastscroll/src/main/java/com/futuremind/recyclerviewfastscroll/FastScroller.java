@@ -49,7 +49,7 @@ public class FastScroller extends LinearLayout {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.fastscroller, this);
 
-        TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
+        TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, R.attr.fastScrollerTheme, 0);
         try {
             bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, ContextCompat.getColor(context, android.R.color.white));
             handleColor = style.getColor(R.styleable.FastScroller_handleColor, ContextCompat.getColor(context, android.R.color.darker_gray));
