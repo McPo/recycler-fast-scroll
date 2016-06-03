@@ -106,7 +106,7 @@ public class FastScroller extends LinearLayout {
 
     private void setBackgroundTint(View view) {
         final Drawable background = DrawableCompat.wrap(view.getBackground());
-        DrawableCompat.setTint(background, android.R.color.holo_green_light);
+        DrawableCompat.setTint(background, bubbleColor);
         view.setBackground(background);
     }
 
