@@ -53,7 +53,7 @@ public class FastScroller extends LinearLayout {
         inflater.inflate(R.layout.fastscroller, this);
 
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller);
-        Log.i("FastScroller", style.toString());
+        Log.i("FastScroller", style.length()+"");
         try {
             bubbleTextStyle = style.getResourceId(0, -1);
             handleColor = style.getColor(1, 0xFFFF0000);
@@ -61,7 +61,9 @@ public class FastScroller extends LinearLayout {
         }
         finally {
             style.recycle();
+        Log.i("FastScroller", "finnally");
         }
+        Log.i("FastScroller", "2nd end");
     }
 
     @Override //TODO should probably use some custom orientation instead of linear layout one
