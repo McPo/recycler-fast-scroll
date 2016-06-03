@@ -2,13 +2,10 @@ package com.futuremind.recyclerviewfastscroll;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -81,36 +78,15 @@ public class FastScroller extends LinearLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
         bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
-
-        /*Drawable originalDrawable = ContextCompat.getDrawable(getContext(), R.drawable.fastscroller_bubble);
-        final Drawable wrappedDrawable = DrawableCompat.wrap(originalDrawable);
-
-        TypedValue typedValue = new TypedValue();
-        getContext().getTheme().resolveAttribute(R.attr.fastscrollBubbleColor, typedValue, true);
-        int color = typedValue.data;
-
-        DrawableCompat.setTint(wrappedDrawable, color);
-        bubble.setBackground(wrappedDrawable);*/
-
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
         initHandleMovement();
     }
 
-    @SuppressWarnings("deprecation")
     private void initHandleBackground() {
-        Resources resources = getResources();
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            handle.setImageDrawable(resources.getDrawable(
-                    isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal,
-                    getContext().getTheme()
-            ));
-        } else {
-            handle.setImageDrawable(resources.getDrawable(
-                    isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal
-            ));
-        }
+        handle.setImageDrawable(ContextCompat.getDrawable(getContext(),
+                isVertical() ? R.drawable.fastscroller_handle_vertical : R.drawable.fastscroller_handle_horizontal));
     }
 
     private void initHandleMovement() {
