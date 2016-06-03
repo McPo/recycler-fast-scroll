@@ -8,7 +8,5 @@
     android:gravity="center"
     android:textSize="24sp"
     style="?attr/fastscrollBubbleTextStyle"
-    android:background="@drawable/fastscroller_bubble"
-    app:backgroundTint="?attr/fastscrollBubbleColor"
     tools:text="A"
     tools:visibility="visible"/>
