@@ -51,9 +51,9 @@ public class FastScroller extends LinearLayout {
 
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
         try {
-            bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, -1);
-            handleColor = style.getColor(R.styleable.FastScroller_handleColor, -1);
-            textAppearance = style.getResourceId(R.styleable.FastScroller_textAppearance, -1);
+            bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, android.R.color.white);
+            handleColor = style.getColor(R.styleable.FastScroller_handleColor, android.R.color.darker_gray);
+            textAppearance = style.getResourceId(R.styleable.FastScroller_textAppearance, android.R.style.TextAppearance);
         }
         finally {
             style.recycle();
@@ -103,9 +103,9 @@ public class FastScroller extends LinearLayout {
         initHandleBackground();
         initHandleMovement();
 
-        if(bubbleColor!=-1) setBackgroundTint(defaultBubble, bubbleColor);
-        if(handleColor!=-1) setImageTint(handle, handleColor);
-        if(textAppearance!=-1) TextViewCompat.setTextAppearance(defaultBubble, textAppearance);
+        setBackgroundTint(defaultBubble, bubbleColor);
+        setImageTint(handle, handleColor);
+        TextViewCompat.setTextAppearance(defaultBubble, textAppearance);
     }
 
     private void setBackgroundTint(View view, int color) {
