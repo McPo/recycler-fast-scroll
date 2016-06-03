@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.util.Log;
+
 /**
  * Created by mklimczak on 28/07/15.
  */
@@ -49,6 +51,7 @@ public class FastScroller extends LinearLayout {
         inflater.inflate(R.layout.fastscroller, this);
 
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller);
+        Log.i("TESTER", style.toString());
         try {
             bubbleTextStyle = style.getResourceId(0, -1);
             handleColor = style.getColor(1, 0xFFFF0000);
