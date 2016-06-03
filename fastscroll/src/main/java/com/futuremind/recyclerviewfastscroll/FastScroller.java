@@ -20,9 +20,9 @@ import android.widget.TextView;
  * Created by mklimczak on 28/07/15.
  */
 public class FastScroller extends LinearLayout {
-    private final int bubbleTextStyle;
     private final int handleColor;
     private final int bubbleColor;
+    private final int textAppearance;
 
     private FastScrollBubble bubble;
     private ImageView handle;
@@ -50,9 +50,9 @@ public class FastScroller extends LinearLayout {
 
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
         try {
-            bubbleTextStyle = style.getResourceId(R.styleable.FastScroller_bubbleTextStyle, -1);
-            handleColor = style.getColor(R.styleable.FastScroller_handleColor, -1);
             bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, -1);
+            handleColor = style.getColor(R.styleable.FastScroller_handleColor, -1);
+            textAppearance = style.getResourceId(R.styleable.FastScroller_textAppearance, -1);
         }
         finally {
             style.recycle();
@@ -102,9 +102,9 @@ public class FastScroller extends LinearLayout {
         initHandleBackground();
         initHandleMovement();
 
-        if(bubbleTextStyle!=-1) defaultBubble.setTextAppearance(getContext(), bubbleTextStyle);
         if(bubbleColor!=-1) setBackgroundTint(defaultBubble, bubbleColor);
         if(handleColor!=-1) setImageTint(handle, handleColor);
+        if(textAppearance!=-1) defaultBubble.setTextAppearance(getContext(), textAppearance);
     }
 
     private void setBackgroundTint(View view, int color) {
