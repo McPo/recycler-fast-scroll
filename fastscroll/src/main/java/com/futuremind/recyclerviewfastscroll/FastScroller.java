@@ -1,7 +1,6 @@
 package com.futuremind.recyclerviewfastscroll;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -52,12 +51,8 @@ public class FastScroller extends LinearLayout {
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
         try {
             bubbleTextStyle = style.getResourceId(R.styleable.FastScroller_bubbleTextStyle, -1);
-
-            ColorStateList handleColorStateList = style.getColorStateList(R.styleable.FastScroller_handleColor);
-            handleColor = (handleColorStateList==null) ? -1:handleColorStateList.getDefaultColor();
-
-            ColorStateList bubbleColorStateList = style.getColorStateList(R.styleable.FastScroller_bubbleColor);
-            bubbleColor = (handleColorStateList==null) ? -1:bubbleColorStateList.getDefaultColor();
+            handleColor = style.getColor(R.styleable.FastScroller_handleColor, -1);
+            bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, -1);
         }
         finally {
             style.recycle();
