@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fastscroller_bubble"
     android:layout_width="64dp"
     android:layout_height="64dp"
     android:gravity="center"
     android:textSize="24sp"
-    style="?attr/fastscrollBubbleTextStyle"
+    android:background="@drawable/fastscroller_bubble"
     tools:text="A"
     tools:visibility="visible"/>

@@ -2,8 +2,11 @@ package com.futuremind.recyclerviewfastscroll;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -16,6 +19,9 @@ import android.widget.LinearLayout;
  * Created by mklimczak on 28/07/15.
  */
 public class FastScroller extends LinearLayout {
+    private final int bubbleTextStyle;
+    private final int scrollerColor;
+    private final int bubbleColor;
 
     private FastScrollBubble bubble;
     private ImageView handle;
@@ -32,7 +38,7 @@ public class FastScroller extends LinearLayout {
     private SectionTitleProvider titleProvider;
 
     public FastScroller(Context context) {
-        super(context, null);
+        this(context, null);
     }
 
     public FastScroller(Context context, AttributeSet attrs) {
@@ -40,6 +46,16 @@ public class FastScroller extends LinearLayout {
         setClipChildren(false);
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.fastscroller, this);
+
+        TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
+        try {
+            bubbleTextStyle = style.getResourceId(R.styleable.FastScroller_bubbleTextStyle, 0);
+            scrollerColor = style.getColor(R.styleable.FastScroller_scrollerColor, 0xFFFF0000);
+            bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, 0xFFFF0000);
+        }
+        finally {
+            style.recycle();
+        }
     }
 
     @Override //TODO should probably use some custom orientation instead of linear layout one
@@ -79,9 +95,19 @@ public class FastScroller extends LinearLayout {
         super.onLayout(changed, l, t, r, b);
         bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
+
+        setBackgroundTint(bubble);
+        setBackgroundTint(handle);
+
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
         initHandleMovement();
+    }
+
+    private void setBackgroundTint(View view) {
+        final Drawable background = DrawableCompat.wrap(view.getBackground());
+        DrawableCompat.setTint(background, android.R.color.holo_green_light);
+        view.setBackground(background);
     }
 
     private void initHandleBackground() {
