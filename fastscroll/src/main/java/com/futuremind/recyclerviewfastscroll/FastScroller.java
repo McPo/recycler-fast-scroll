@@ -104,13 +104,19 @@ public class FastScroller extends LinearLayout {
 
         defaultBubble.setTextAppearance(getContext(), bubbleTextStyle);
         setBackgroundTint(defaultBubble, bubbleColor);
-        setBackgroundTint(handle, handleColor);
+        setImageTint(handle, handleColor);
     }
 
     private void setBackgroundTint(View view, int color) {
         final Drawable background = DrawableCompat.wrap(view.getBackground());
         DrawableCompat.setTint(background, color);
         view.setBackground(background);
+    }
+
+    private void setImageTint(ImageView view, int color) {
+        final Drawable image = DrawableCompat.wrap(view.getDrawable());
+        DrawableCompat.setTint(image, color);
+        view.setImageDrawable(image);
     }
 
     private void initHandleBackground() {
