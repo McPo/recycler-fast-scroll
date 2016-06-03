@@ -56,8 +56,9 @@ public class FastScroller extends LinearLayout {
         Log.i("FastScroller", style.length()+"");
         //try {
             handleColor = style.getColor(R.styleable.FastScroller_handleColor, 0xFFFF0000);
-            Log.i("FastScroller", handle+"");
+            Log.i("FastScroller", style.getColor(R.styleable.FastScroller_handleColor, 0xFFFF0000)+"");
             Log.i("FastScroller", style.getColor(0, 0xFFFF0000)+"");
+            Log.i("FastScroller", 0xFFFF0000+"");
 
         //}
         //finally {
