@@ -16,15 +16,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import android.util.Log;
-
 /**
  * Created by mklimczak on 28/07/15.
  */
 public class FastScroller extends LinearLayout {
-    private final int bubbleTextStyle =-1;
+    private final int bubbleTextStyle;
     private final int handleColor;
-    private final int bubbleColor =-1;
+    private final int bubbleColor;
 
     private FastScrollBubble bubble;
     private ImageView handle;
@@ -42,30 +40,23 @@ public class FastScroller extends LinearLayout {
 
     public FastScroller(Context context) {
         this(context, null);
-        Log.i("FastScroller", "1st constructor");
     }
 
     public FastScroller(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Log.i("FastScroller", "2nd constructor");
         setClipChildren(false);
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.fastscroller, this);
 
-        TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller);
-        Log.i("FastScroller", style.length()+"");
-        //try {
-            handleColor = style.getColor(R.styleable.FastScroller_handleColor, 0xFFFF0000);
-            Log.i("FastScroller", style.getColor(R.styleable.FastScroller_handleColor, 0xFFFF0000)+"");
-            Log.i("FastScroller", style.getColor(0, 0xFFFF0000)+"");
-            Log.i("FastScroller", 0xFFFF0000+"");
-
-        //}
-        //finally {
-        //    style.recycle();
-        //Log.i("FastScroller", "finnally");
-        //}
-        Log.i("FastScroller", "2nd end");
+        TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
+        try {
+            bubbleTextStyle = style.getResourceId(R.styleable.FastScroller_bubbleTextStyle, -1);
+            handleColor = style.getColor(R.styleable.FastScroller_handleColor, -1);
+            bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, -1);
+        }
+        finally {
+            style.recycle();
+        }
     }
 
     @Override //TODO should probably use some custom orientation instead of linear layout one
