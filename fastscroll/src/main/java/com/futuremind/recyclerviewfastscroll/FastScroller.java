@@ -52,7 +52,7 @@ public class FastScroller extends LinearLayout {
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
         try {
             bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, ContextCompat.getColor(context, android.R.color.white));
-            handleColor = style.getColor(R.styleable.FastScroller_handleColor, ContextCompat.getColor(context, android.R.color.darker_gray));
+            handleColor = style.getColor(R.styleable.FastScroller_handleColor, ContextCompat.getColor(context, android.R.color.white));
             textAppearance = style.getResourceId(R.styleable.FastScroller_textAppearance, android.R.style.TextAppearance);
         }
         finally {
