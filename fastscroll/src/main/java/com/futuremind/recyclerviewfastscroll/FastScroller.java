@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -104,7 +105,7 @@ public class FastScroller extends LinearLayout {
 
         if(bubbleColor!=-1) setBackgroundTint(defaultBubble, bubbleColor);
         if(handleColor!=-1) setImageTint(handle, handleColor);
-        if(textAppearance!=-1) defaultBubble.setTextAppearance(getContext(), textAppearance);
+        if(textAppearance!=-1) TextViewCompat.setTextAppearance(defaultBubble, textAppearance);
     }
 
     private void setBackgroundTint(View view, int color) {
