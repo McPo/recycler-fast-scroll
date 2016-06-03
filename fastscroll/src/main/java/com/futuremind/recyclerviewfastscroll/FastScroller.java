@@ -14,13 +14,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by mklimczak on 28/07/15.
  */
 public class FastScroller extends LinearLayout {
     private final int bubbleTextStyle;
-    private final int scrollerColor;
+    private final int handleColor;
     private final int bubbleColor;
 
     private FastScrollBubble bubble;
@@ -50,7 +51,7 @@ public class FastScroller extends LinearLayout {
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller, 0, 0);
         try {
             bubbleTextStyle = style.getResourceId(R.styleable.FastScroller_bubbleTextStyle, 0);
-            scrollerColor = style.getColor(R.styleable.FastScroller_scrollerColor, 0xFFFF0000);
+            handleColor = style.getColor(R.styleable.FastScroller_handleColor, 0xFFFF0000);
             bubbleColor = style.getColor(R.styleable.FastScroller_bubbleColor, 0xFFFF0000);
         }
         finally {
@@ -95,18 +96,20 @@ public class FastScroller extends LinearLayout {
         super.onLayout(changed, l, t, r, b);
         bubble = (FastScrollBubble) findViewById(R.id.fastscroller_bubble);
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
+        TextView defaultBubble = (TextView) bubble.getChildAt(0);
 
-        setBackgroundTint(bubble.getChildAt(0));
-        //setBackgroundTint(handle);
+        defaultBubble.setTextAppearance(getContext(), bubbleTextStyle);
+        setBackgroundTint(defaultBubble, bubbleColor);
+        setBackgroundTint(handle, handleColor);
 
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
         initHandleMovement();
     }
 
-    private void setBackgroundTint(View view) {
+    private void setBackgroundTint(View view, int color) {
         final Drawable background = DrawableCompat.wrap(view.getBackground());
-        DrawableCompat.setTint(background, bubbleColor);
+        DrawableCompat.setTint(background, color);
         view.setBackground(background);
     }
 
