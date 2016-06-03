@@ -98,13 +98,13 @@ public class FastScroller extends LinearLayout {
         handle = (ImageView) findViewById(R.id.fastscroller_handle);
         TextView defaultBubble = (TextView) bubble.getChildAt(0);
 
-        defaultBubble.setTextAppearance(getContext(), bubbleTextStyle);
-        setBackgroundTint(defaultBubble, bubbleColor);
-        //setBackgroundTint(handle, handleColor);
-
         bubbleOffset = (int) (isVertical() ? ((float)handle.getHeight()/2f)-bubble.getHeight() : ((float)handle.getWidth()/2f)-bubble.getWidth());
         initHandleBackground();
         initHandleMovement();
+
+        defaultBubble.setTextAppearance(getContext(), bubbleTextStyle);
+        setBackgroundTint(defaultBubble, bubbleColor);
+        setBackgroundTint(handle, handleColor);
     }
 
     private void setBackgroundTint(View view, int color) {
