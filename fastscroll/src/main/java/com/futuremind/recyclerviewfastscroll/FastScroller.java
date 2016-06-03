@@ -42,16 +42,18 @@ public class FastScroller extends LinearLayout {
 
     public FastScroller(Context context) {
         this(context, null);
+        Log.i("FastScroller", "1st constructor");
     }
 
     public FastScroller(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Log.i("FastScroller", "2nd constructor");
         setClipChildren(false);
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.fastscroller, this);
 
         TypedArray style = context.obtainStyledAttributes(attrs, R.styleable.FastScroller);
-        Log.i("TESTER", style.toString());
+        Log.i("FastScroller", style.toString());
         try {
             bubbleTextStyle = style.getResourceId(0, -1);
             handleColor = style.getColor(1, 0xFFFF0000);
